@@ -66,7 +66,7 @@
 		vazios=validarFormVazio('frmLogin');
 
 			if(vazios > 0){
-				alert("Preencha os campos!!");
+				alert("Preencha os campos!");
 				return false;
 			}
 
@@ -80,7 +80,7 @@
 				if(r==1){
 					window.location="view/inicio.php";
 				}else{
-					alert("Acesso Negado!!");
+					alert("Acesso Negado!");
 				}
 			}
 		});

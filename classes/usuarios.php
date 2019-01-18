@@ -22,6 +22,7 @@ class usuarios{
 
 		$_SESSION['usuario'] = $dados[0];
 		$_SESSION['iduser'] = self::trazerId($dados);
+		$_SESSION['cargo'] = self::trazerCargo($dados);
 
 		$sql = "SELECT * from usuarios where email = '$dados[0]' and senha = '$senha' ";
 
@@ -46,6 +47,17 @@ class usuarios{
 		$senha = sha1($dados[1]);
 
 		$sql = "SELECT id from usuarios where email='$dados[0]' and senha = '$senha' ";
+		$result = mysqli_query($conexao, $sql);
+		return mysqli_fetch_row($result)[0];
+	}
+
+	public function trazerCargo($dados){
+		$c = new conectar();
+		$conexao=$c->conexao();
+
+		$senha = sha1($dados[1]);
+
+		$sql = "SELECT cargo from usuarios where email='$dados[0]' and senha = '$senha' ";
 		$result = mysqli_query($conexao, $sql);
 		return mysqli_fetch_row($result)[0];
 	}
