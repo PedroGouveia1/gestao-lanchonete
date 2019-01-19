@@ -1,12 +1,13 @@
 
 <?php 
-
+session_start();
 
 require_once "../../classes/conexao.php";
 	$c = new conectar();
 	$conexao=$c->conexao();
 
-	$sql = "SELECT id, nome, user, email, cantina, cargo FROM usuarios WHERE ativo = 1";
+	$idcantina = $_SESSION['cantina'];
+	$sql = "SELECT id, nome, user, email, cantina, cargo FROM usuarios WHERE ativo = 1 AND cantina = $idcantina";
 	$result = mysqli_query($conexao, $sql);
 
 ?>

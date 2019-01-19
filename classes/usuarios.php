@@ -23,6 +23,7 @@ class usuarios{
 		$_SESSION['usuario'] = $dados[0];
 		$_SESSION['iduser'] = self::trazerId($dados);
 		$_SESSION['cargo'] = self::trazerCargo($dados);
+		$_SESSION['cantina'] = self::trazerCantina($dados);
 
 		$sql = "SELECT * from usuarios where email = '$dados[0]' and senha = '$senha' ";
 
@@ -44,7 +45,7 @@ class usuarios{
 		$c = new conectar();
 		$conexao=$c->conexao();
 
-		$sql = "UPDATE usuarios SET nome = '$dados[1]', user = '$dados[2]', email = '$dados[3]' WHERE id = '$dados[0]'";
+		$sql = "UPDATE usuarios SET nome = '$dados[1]', user = '$dados[2]', email = '$dados[3]', cargo = '$dados[4]' WHERE id = '$dados[0]'";
 
 
 		echo mysqli_query($conexao, $sql);
@@ -55,7 +56,7 @@ class usuarios{
 		$c = new conectar();
 		$conexao=$c->conexao();
 
-		$sql = "SELECT id, nome, user, email from usuarios where id='$id' ";
+		$sql = "SELECT id, nome, user, email, cargo from usuarios where id='$id' ";
 
 			$result = mysqli_query($conexao, $sql);
 			$mostrar = mysqli_fetch_row($result);
@@ -64,7 +65,8 @@ class usuarios{
 				'id' => $mostrar[0],
 				'nome' => $mostrar[1],
 				'user' => $mostrar[2],
-				'email' => $mostrar[3]
+				'email' => $mostrar[3],
+				'cargo' => $mostrar[4]
 			);
 
 			return $dados;
@@ -99,6 +101,18 @@ class usuarios{
 		$senha = sha1($dados[1]);
 
 		$sql = "SELECT cargo from usuarios where email='$dados[0]' and senha = '$senha' ";
+		$result = mysqli_query($conexao, $sql);
+		return mysqli_fetch_row($result)[0];
+	}
+
+
+	public function trazerCantina($dados){
+		$c = new conectar();
+		$conexao=$c->conexao();
+
+		$senha = sha1($dados[1]);
+
+		$sql = "SELECT cantina from usuarios where email='$dados[0]' and senha = '$senha' ";
 		$result = mysqli_query($conexao, $sql);
 		return mysqli_fetch_row($result)[0];
 	}

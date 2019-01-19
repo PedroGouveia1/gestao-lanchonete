@@ -37,13 +37,14 @@
 
 						<div class="form-group">
 							<label>Cantina</label>
-							<select class="form-control" name="cantina" id="cantina">
+							<select disabled class="form-control" name="cantina" id="cantina">
 							<?php
+								$idcantina = $_SESSION['cantina'];
 								$consulta = "SELECT id_cantina, nome FROM cantinas";
 								$consultaCantina = mysqli_query($conexao, $consulta);
 								while($mostrar = mysqli_fetch_row($consultaCantina)):
 							?>
-							<option value="<?php echo $mostrar[0]; ?>"><?php echo $mostrar[1]; ?></option>
+							<option <?php if($mostrar[0] == $idcantina){echo 'selected';} ?> value="<?php echo $mostrar[0]; ?>"><?php echo $mostrar[1]; ?></option>
 							<?php endWhile; ?>
 							</select>
 
@@ -127,7 +128,7 @@
 							<?php endWhile; ?>
 							</select>
 
-						</div>
+						</div>-->
 
 						<div class="form-group">
 
@@ -142,7 +143,7 @@
 								<?php endWhile; ?>
 							</select>
 
-						</div>-->
+						</div>
 
 						</form>
 					</div>
@@ -171,6 +172,7 @@
 					$('#nomeU').val(dado['nome']);
 					$('#userU').val(dado['user']);
 					$('#emailU').val(dado['email']);
+					$('#cargoU').val(dado['cargo']);
 				}
 			});
 		}

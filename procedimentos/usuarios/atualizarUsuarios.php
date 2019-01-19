@@ -10,6 +10,7 @@ $dados=array(
 	$_POST['nomeU'],
 	$_POST['userU'],
 	$_POST['emailU'],
+	$_POST['cargoU']
 );
 
 echo $obj->atualizar($dados);
