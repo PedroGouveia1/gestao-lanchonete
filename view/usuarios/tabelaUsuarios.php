@@ -6,7 +6,7 @@ require_once "../../classes/conexao.php";
 	$c = new conectar();
 	$conexao=$c->conexao();
 
-	$sql = "SELECT id, nome, user, email, cantina, cargo FROM usuarios";
+	$sql = "SELECT id, nome, user, email, cantina, cargo FROM usuarios WHERE ativo = 1";
 	$result = mysqli_query($conexao, $sql);
 
 ?>
@@ -44,7 +44,7 @@ require_once "../../classes/conexao.php";
 		<td><?php echo $exibirNomeCantina[0]; ?></td>
 		<td><?php echo $exibirNomeCargo[0]; ?></td>
 		<td>
-			<span class="btn btn-warning btn-xs" data-toggle="modal" data-target="#abremodalFornecedoresUpdate" onclick="adicionarDado('<?php echo $mostrar[0]; ?>')">
+			<span class="btn btn-warning btn-xs" data-toggle="modal" data-target="#atualizaUsuarioModal" onclick="adicionarDado('<?php echo $mostrar[0]; ?>')">
 				<span class="glyphicon glyphicon-pencil"></span>
 			</span>
 		</td>

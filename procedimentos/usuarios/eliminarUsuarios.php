@@ -2,11 +2,11 @@
 
 
 require_once "../../classes/conexao.php";
-require_once "../../classes/fornecedores.php";
+require_once "../../classes/usuarios.php";
 
-$id = $_POST['idfornecedor'];
+$id = $_POST['idusuario'];
 
-$obj = new fornecedores();
+$obj = new usuarios();
 echo $obj->excluir($id);
 
 ?>

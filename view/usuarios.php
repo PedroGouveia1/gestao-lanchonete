@@ -107,7 +107,7 @@
 
 						<div class="form-group">
 							<label>Usuário</label>
-							<input type="text" class="form-control input-sm" name="usuarioU" id="usuarioU">
+							<input type="text" class="form-control input-sm" name="userU" id="userU">
 						</div>
 
 						<div class="form-group">
@@ -115,7 +115,7 @@
 							<input type="text" class="form-control input-sm" name="emailU" id="emailU">
 						</div>
 
-						<div class="form-group">
+						<!--<div class="form-group">
 							<label>Cantina</label>
 							<select class="form-control" name="cantinaU" id="cantinaU">
 							<?php
@@ -142,7 +142,7 @@
 								<?php endWhile; ?>
 							</select>
 
-						</div>
+						</div>-->
 
 						</form>
 					</div>
@@ -158,7 +158,7 @@
 	</html>
 
 	<script type="text/javascript">
-		function adicionarDados(idusuario){
+		function adicionarDado(idusuario){
 
 			$.ajax({
 				type:"POST",
@@ -167,16 +167,16 @@
 				success:function(r){
 					dado=jQuery.parseJSON(r);
 
-					$('#idUsuario').val(dado['id_usuario']);
+					$('#idUsuarioU').val(dado['id']);
 					$('#nomeU').val(dado['nome']);
-					$('#usuarioU').val(dado['usuario']);
+					$('#userU').val(dado['user']);
 					$('#emailU').val(dado['email']);
 				}
 			});
 		}
 
-		function eliminarUsuario(idusuario){
-			alertify.confirm('Deseja excluir este usuario?', function(){ 
+		function eliminar(idusuario){
+			alertify.confirm('Deseja excluir este funcionário?', function(){ 
 				$.ajax({
 					type:"POST",
 					data:"idusuario=" + idusuario,
@@ -184,36 +184,39 @@
 					success:function(r){
 						if(r==1){
 							$('#tabelaUsuariosLoad').load('usuarios/tabelaUsuarios.php');
-							alertify.success("Excluido com sucesso!!");
+							alertify.success("Funcionário excluido com sucesso!");
 						}else{
-							alertify.error("Não excluido :(");
+							alertify.error("Erro ao excluir funcionário.");
 						}
 					}
 				});
 			}, function(){ 
-				alertify.error('Cancelado !')
+				alertify.error('Cancelado.')
 			});
 		}
 
 
 	</script>
 
+
+	<!-- ATUALIZAR UM FUNCIONÁRIO -->
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#btnAtualizaUsuario').click(function(){
-
 				datos=$('#frmRegistroU').serialize();
+
 				$.ajax({
 					type:"POST",
 					data:datos,
-					url:"../procecimentos/usuarios/atualizarUsuarios.php",
+					url:"../procedimentos/usuarios/atualizarUsuarios.php",
 					success:function(r){
 
 						if(r==1){
+							$('#frmRegistro')[0].reset();
 							$('#tabelaUsuariosLoad').load('usuarios/tabelaUsuarios.php');
-							alertify.success("Editado com sucesso :D");
+							alertify.success("Funcionário atualizado com sucesso!");
 						}else{
-							alertify.error("Não foi possível editar :(");
+							alertify.error("Não foi possível atualizar o funcionário.");
 						}
 					}
 				});
@@ -231,7 +234,7 @@
 				vazios=validarFormVazio('frmRegistro');
 
 				if(vazios > 0){
-					alertify.alert("Preencha os campos!!");
+					alertify.alert("Preencha os campos!");
 					return false;
 				}
 
@@ -241,14 +244,14 @@
 					data:datos,
 					url:"../procedimentos/login/registrarUsuario.php",
 					success:function(r){
-						//alert(r);
+						
 
 						if(r==1){
 							$('#frmRegistro')[0].reset();
 							$('#tabelaUsuariosLoad').load('usuarios/tabelaUsuarios.php');
 							alertify.success("Adicionado com sucesso");
 						}else{
-							alertify.error("Falha ao adicionar :(");
+							alertify.error("Falha ao adicionarrr");
 						}
 					}
 				});

@@ -12,7 +12,10 @@ $dados=array(
 	$_POST['nome'],
 	$_POST['usuario'],
 	$_POST['email'],
-	$senha
+	$senha,
+	$_POST['cantina'],
+	$_POST['cargo']
+	
 
 );
 

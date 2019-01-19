@@ -173,7 +173,6 @@ if(isset($_SESSION['usuario'])){
 					url:"../procedimentos/fornecedores/atualizarFornecedores.php",
 					success:function(r){
 
-
 						if(r==1){
 							$('#frmFornecedores')[0].reset();
 							$('#tabelaFornecedoresLoad').load("fornecedores/tabelaFornecedores.php");

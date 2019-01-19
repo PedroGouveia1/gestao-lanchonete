@@ -7,7 +7,7 @@ class usuarios{
 
 		$data = date('Y-m-d');
 
-		$sql = "INSERT into usuarios (nome, user, email, senha, dataCaptura) VALUES ('$dados[0]', '$dados[1]', '$dados[2]', '$dados[3]', '$data')";
+		$sql = "INSERT into usuarios (nome, user, email, senha, dataCaptura, cantina, cargo) VALUES ('$dados[0]', '$dados[1]', '$dados[2]', '$dados[3]', '$data', '$dados[4]', '$dados[5]')";
 
 		return mysqli_query($conexao, $sql);
 	}
@@ -37,6 +37,47 @@ class usuarios{
 		}
 
 
+	}
+
+
+	public function atualizar($dados){
+		$c = new conectar();
+		$conexao=$c->conexao();
+
+		$sql = "UPDATE usuarios SET nome = '$dados[1]', user = '$dados[2]', email = '$dados[3]' WHERE id = '$dados[0]'";
+
+
+		echo mysqli_query($conexao, $sql);
+	}
+
+
+	public function obterDados($id){
+		$c = new conectar();
+		$conexao=$c->conexao();
+
+		$sql = "SELECT id, nome, user, email from usuarios where id='$id' ";
+
+			$result = mysqli_query($conexao, $sql);
+			$mostrar = mysqli_fetch_row($result);
+
+			$dados = array(
+				'id' => $mostrar[0],
+				'nome' => $mostrar[1],
+				'user' => $mostrar[2],
+				'email' => $mostrar[3]
+			);
+
+			return $dados;
+
+	}
+
+	public function excluir($id){
+		$c = new conectar();
+		$conexao=$c->conexao();
+		
+		$sql = "UPDATE usuarios SET ativo = 0 WHERE id = '$id'";
+
+		return mysqli_query($conexao, $sql);
 	}
 
 
