@@ -64,7 +64,7 @@
 					"id_categoria" => $mostrar[1],
 					"nome" => $mostrar[2],
 					"quantidade" => $mostrar[3],
-					"preco" => $mostrar[4]
+					"preco" => number_format($mostrar[4], 2, ',', '.')
 						);
 
 			return $dados;
@@ -76,9 +76,8 @@
 
 			$sql="UPDATE produtos set id_categoria='$dados[1]', 
 										nome='$dados[2]',
-										descricao='$dados[3]',
-										quantidade='$dados[4]',
-										preco='$dados[5]'
+										quantidade='$dados[3]',
+										preco='$dados[4]'
 						where id_produto='$dados[0]'";
 
 			return mysqli_query($conexao,$sql);

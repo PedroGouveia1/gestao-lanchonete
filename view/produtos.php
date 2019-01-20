@@ -143,9 +143,9 @@ if(isset($_SESSION['usuario'])){
 					success:function(r){
 						if(r==1){
 							$('#tabelaProdutosLoad').load("produtos/tabelaProdutos.php");
-							alertify.success("Editado com sucesso!!");
+							alertify.success("Editado com sucesso.");
 						}else{
-							alertify.error("Erro ao editar");
+							alertify.error("Erro ao editar produto.");
 						}
 					}
 				});
