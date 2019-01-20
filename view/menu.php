@@ -33,7 +33,7 @@
 
 
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Gestão de Produtos <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-shopping-cart"></span> Gestão de Produtos <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="categorias.php">Categorias</a></li>
 							<li><a href="produtos.php">Produtos</a></li>
