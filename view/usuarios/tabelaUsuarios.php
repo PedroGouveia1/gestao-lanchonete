@@ -7,7 +7,7 @@ require_once "../../classes/conexao.php";
 	$conexao=$c->conexao();
 
 	$idcantina = $_SESSION['cantina'];
-	$sql = "SELECT id, nome, user, email, cantina, cargo FROM usuarios WHERE ativo = 1 AND cantina = $idcantina";
+	$sql = "SELECT id, nome, user, email, cantina, cargo FROM usuarios WHERE ativo = 1 AND cantina = $idcantina ORDER BY nome";
 	$result = mysqli_query($conexao, $sql);
 
 ?>

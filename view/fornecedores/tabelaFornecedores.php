@@ -6,7 +6,7 @@ require_once "../../classes/conexao.php";
 	$c = new conectar();
 		$conexao=$c->conexao();
 
-	$sql = "SELECT id_fornecedor, nome, endereco, email, telefone, obs FROM fornecedores WHERE ativo = 1";
+	$sql = "SELECT id_fornecedor, nome, endereco, email, telefone, obs FROM fornecedores WHERE ativo = 1 ORDER BY nome";
 	$result = mysqli_query($conexao, $sql);
 
 ?>
