@@ -15,6 +15,15 @@ if(isset($_SESSION['usuario'])){
 		$sql="SELECT id_categoria, nome_categoria FROM categorias ORDER BY nome_categoria";
 		$result=mysqli_query($conexao,$sql);
 		?>
+
+		<script type="text/javascript" src="../lib/jquery-3.2.1.min.js" ></script>
+    <script type="text/javascript" src="../js/jquery.maskMoney.min.js" ></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+              $("input.dinheiro").maskMoney({showSymbol:true, symbol:"R$", decimal:",", thousands:"."});
+        });
+    </script>
+
 	</head>
 	<body>
 		<div class="container">
@@ -34,7 +43,7 @@ if(isset($_SESSION['usuario'])){
 						<label>Quantidade</label>
 						<input type="text" class="form-control input-sm" id="quantidade" name="quantidade">
 						<label>Preço</label>
-						<input type="text" class="form-control input-sm" id="preco" name="preco">
+						<input type="text" class="form-control input-sm dinheiro" id="preco" name="preco">
 						
 						<p></p>
 						<span id="btnAddProduto" class="btn btn-primary">Adicionar</span>
@@ -76,7 +85,7 @@ if(isset($_SESSION['usuario'])){
 							<label>Quantidade</label>
 							<input type="text" class="form-control input-sm" id="quantidadeU" name="quantidadeU">
 							<label>Preço</label>
-							<input type="text" class="form-control input-sm" id="precoU" name="precoU">
+							<input type="text" class="form-control input-sm dinheiro" id="precoU" name="precoU">
 							
 						</form>
 					</div>
