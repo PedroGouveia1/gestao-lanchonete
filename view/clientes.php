@@ -8,12 +8,12 @@ if(isset($_SESSION['usuario'])){
 	<!DOCTYPE html>
 	<html>
 	<head>
-		<title>clientes</title>
+		<title>Clientes</title>
 		<?php require_once "menu.php"; ?>
 	</head>
 	<body>
 		<div class="container">
-			<h1>Clientes</h1>
+			<h1>Gestão de clientes</h1>
 			<div class="row">
 				<div class="col-sm-4">
 					<form id="frmClientes">
@@ -21,16 +21,18 @@ if(isset($_SESSION['usuario'])){
 						<input type="text" class="form-control input-sm" id="nome" name="nome">
 						<label>Sobrenome</label>
 						<input type="text" class="form-control input-sm" id="sobrenome" name="sobrenome">
-						<label>Endereço</label>
-						<input type="text" class="form-control input-sm" id="endereco" name="endereco">
+						<label>Setor</label>
+						<input type="text" class="form-control input-sm" id="setor" name="setor">
 						<label>Email</label>
 						<input type="text" class="form-control input-sm" id="email" name="email">
 						<label>Telefone</label>
 						<input type="text" class="form-control input-sm" id="telefone" name="telefone">
 						<label>CPF</label>
 						<input type="text" class="form-control input-sm" id="cpf" name="cpf">
+						<label>Observações</label>
+						<textarea style="resize: none" class="form-control input-sm" id="obs" name="obs" rows="2">-</textarea>
 						<p></p>
-						<span class="btn btn-primary" id="btnAdicionarCliente">Salvar</span>
+						<button class="btn btn-primary" id="btnAdicionarCliente">Salvar</button>
 					</form>
 				</div>
 				<div class="col-sm-8">
@@ -137,7 +139,7 @@ if(isset($_SESSION['usuario'])){
 				vazios=validarFormVazio('frmClientes');
 
 				if(vazios > 0){
-					alertify.alert("Preencha os Campos!!");
+					alertify.alert("Preencha os campos!");
 					return false;
 				}
 
