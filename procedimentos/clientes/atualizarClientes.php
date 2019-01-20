@@ -14,10 +14,11 @@ $dados=array(
 	$_POST['idclienteU'],
 	$_POST['nomeU'],
 	$_POST['sobrenomeU'],
-	$_POST['enderecoU'],
+	$_POST['setorU'],
 	$_POST['emailU'],
 	$_POST['telefoneU'],
-	$_POST['cpfU']
+	$_POST['cpfU'],
+	$_POST['obsU']
 	
 
 );

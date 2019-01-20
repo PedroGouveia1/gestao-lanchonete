@@ -59,14 +59,16 @@ if(isset($_SESSION['usuario'])){
 							<input type="text" class="form-control input-sm" id="nomeU" name="nomeU">
 							<label>Sobrenome</label>
 							<input type="text" class="form-control input-sm" id="sobrenomeU" name="sobrenomeU">
-							<label>Endereço</label>
-							<input type="text" class="form-control input-sm" id="enderecoU" name="enderecoU">
+							<label>Setor</label>
+							<input type="text" class="form-control input-sm" id="setorU" name="setorU">
 							<label>Email</label>
 							<input type="text" class="form-control input-sm" id="emailU" name="emailU">
 							<label>Telefone</label>
 							<input type="text" class="form-control input-sm" id="telefoneU" name="telefoneU">
 							<label>CPF</label>
 							<input type="text" class="form-control input-sm" id="cpfU" name="cpfU">
+							<label>Observações</label>
+							<textarea style="resize: none" class="form-control input-sm" id="obsU" name="obsU" rows="2"></textarea>
 						</form>
 					</div>
 					<div class="modal-footer">
@@ -95,12 +97,11 @@ if(isset($_SESSION['usuario'])){
 					$('#idclienteU').val(dado['id_cliente']);
 					$('#nomeU').val(dado['nome']);
 					$('#sobrenomeU').val(dado['sobrenome']);
-					$('#enderecoU').val(dado['endereco']);
+					$('#setorU').val(dado['setor']);
 					$('#emailU').val(dado['email']);
 					$('#telefoneU').val(dado['telefone']);
 					$('#cpfU').val(dado['cpf']);
-
-
+					$('#obsU').val(dado['obs']);
 
 				}
 			});
@@ -124,7 +125,7 @@ if(isset($_SESSION['usuario'])){
 					}
 				});
 			}, function(){ 
-				alertify.error('Cancelado !')
+				alertify.error('Cancelado.')
 			});
 		}
 	</script>
@@ -139,7 +140,7 @@ if(isset($_SESSION['usuario'])){
 				vazios=validarFormVazio('frmClientes');
 
 				if(vazios > 0){
-					alertify.alert("Preencha os campos!");
+					alertify.alert("Preencha todos os campos.");
 					return false;
 				}
 
@@ -154,7 +155,7 @@ if(isset($_SESSION['usuario'])){
 						if(r==1){
 							$('#frmClientes')[0].reset();
 							$('#tabelaClientesLoad').load("clientes/tabelaClientes.php");
-							alertify.success("Cliente Adicionado");
+							alertify.success("Cliente adicionado");
 						}else{
 							alertify.error("Não foi possível adicionar");
 						}
@@ -174,8 +175,6 @@ if(isset($_SESSION['usuario'])){
 					data:dados,
 					url:"../procedimentos/clientes/atualizarClientes.php",
 					success:function(r){
-
-
 
 						if(r==1){
 							$('#frmClientes')[0].reset();

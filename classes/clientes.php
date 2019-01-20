@@ -23,7 +23,7 @@ class clientes{
 		$c = new conectar();
 		$conexao=$c->conexao();
 
-		$sql = "SELECT id_cliente, nome, sobrenome, endereco, email, telefone, cpf from clientes where id_cliente='$idcliente' ";
+		$sql = "SELECT id_cliente, nome, sobrenome, setor, email, telefone, cpf, obs from clientes where id_cliente='$idcliente' ";
 
 			$result = mysqli_query($conexao, $sql);
 			$mostrar = mysqli_fetch_row($result);
@@ -33,10 +33,11 @@ class clientes{
 				'id_cliente' => $mostrar[0],
 				'nome' => $mostrar[1],
 				'sobrenome' => $mostrar[2],
-				'endereco' => $mostrar[3],
+				'setor' => $mostrar[3],
 				'email' => $mostrar[4],
 				'telefone' => $mostrar[5],
 				'cpf' => $mostrar[6],
+				'obs' => $mostrar[7]
 			);
 
 			return $dados;
@@ -50,7 +51,7 @@ class clientes{
 
 		
 
-		$sql = "UPDATE clientes SET nome = '$dados[1]', sobrenome = '$dados[2]',endereco = '$dados[3]',email = '$dados[4]',telefone = '$dados[5]',cpf = '$dados[6]' where id_cliente = '$dados[0]'";
+		$sql = "UPDATE clientes SET nome = '$dados[1]', sobrenome = '$dados[2]', setor = '$dados[3]', email = '$dados[4]', telefone = '$dados[5]', cpf = '$dados[6]', obs = '$dados[7]' where id_cliente = '$dados[0]'";
 
 
 		echo mysqli_query($conexao, $sql);
