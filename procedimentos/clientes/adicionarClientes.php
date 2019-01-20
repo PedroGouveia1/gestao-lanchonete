@@ -11,7 +11,6 @@ $obj = new clientes();
 $dados=array(
 	$idusuario,
 	$_POST['nome'],
-	$_POST['sobrenome'],
 	$_POST['setor'],
 	$_POST['email'],
 	$_POST['telefone'],
@@ -19,6 +18,5 @@ $dados=array(
 	$_POST['obs']
 );
 
-echo $obj->adicionarCliente($dados);
 
  ?>

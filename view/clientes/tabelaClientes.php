@@ -6,7 +6,7 @@ require_once "../../classes/conexao.php";
 	$c = new conectar();
 		$conexao=$c->conexao();
 
-	$sql = "SELECT id_cliente, nome, sobrenome, setor, email, telefone, cpf FROM clientes WHERE ativo = 1";
+	$sql = "SELECT id_cliente, nome, setor, email, telefone, cpf FROM clientes WHERE ativo = 1";
 	$result = mysqli_query($conexao, $sql);
 
 ?>
@@ -16,8 +16,7 @@ require_once "../../classes/conexao.php";
 	<caption><label>Clientes</label></caption>
 	<tr>
 			<td>Nome</td>
-	 		<td>Sobrenome</td>
-	 		<td>Endereço</td>
+	 		<td>Setor</td>
 	 		<td>Email</td>
 	 		<td>Telefone</td>
 	 		<td>CPF</td>
@@ -33,7 +32,6 @@ require_once "../../classes/conexao.php";
 		<td><?php echo $mostrar[3]; ?></td>
 		<td><?php echo $mostrar[4]; ?></td>
 		<td><?php echo $mostrar[5]; ?></td>
-		<td><?php echo $mostrar[6]; ?></td>
 		<td>
 			<span class="btn btn-warning btn-xs" data-toggle="modal" data-target="#abremodalClientesUpdate" onclick="adicionarDado('<?php echo $mostrar[0]; ?>')">
 				<span class="glyphicon glyphicon-pencil"></span>

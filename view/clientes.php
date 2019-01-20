@@ -19,16 +19,14 @@ if(isset($_SESSION['usuario'])){
 					<form id="frmClientes">
 						<label>Nome</label>
 						<input type="text" class="form-control input-sm" id="nome" name="nome">
-						<label>Sobrenome</label>
-						<input type="text" class="form-control input-sm" id="sobrenome" name="sobrenome">
 						<label>Setor</label>
 						<input type="text" class="form-control input-sm" id="setor" name="setor">
 						<label>Email</label>
 						<input type="text" class="form-control input-sm" id="email" name="email">
 						<label>Telefone</label>
-						<input type="text" class="form-control input-sm" id="telefone" name="telefone">
+						<input type="text" class="form-control input-sm phone" id="telefone" name="telefone">
 						<label>CPF</label>
-						<input type="text" class="form-control input-sm" id="cpf" name="cpf">
+						<input type="text" class="form-control input-sm cpf" id="cpf" name="cpf">
 						<label>Observações</label>
 						<textarea style="resize: none" class="form-control input-sm" id="obs" name="obs" rows="2">-</textarea>
 						<p></p>
@@ -57,16 +55,14 @@ if(isset($_SESSION['usuario'])){
 							<input type="text" hidden="" id="idclienteU" name="idclienteU">
 							<label>Nome</label>
 							<input type="text" class="form-control input-sm" id="nomeU" name="nomeU">
-							<label>Sobrenome</label>
-							<input type="text" class="form-control input-sm" id="sobrenomeU" name="sobrenomeU">
 							<label>Setor</label>
 							<input type="text" class="form-control input-sm" id="setorU" name="setorU">
 							<label>Email</label>
 							<input type="text" class="form-control input-sm" id="emailU" name="emailU">
 							<label>Telefone</label>
-							<input type="text" class="form-control input-sm" id="telefoneU" name="telefoneU">
+							<input type="text" class="form-control input-sm phone" id="telefoneU" name="telefoneU">
 							<label>CPF</label>
-							<input type="text" class="form-control input-sm" id="cpfU" name="cpfU">
+							<input type="text" class="form-control input-sm cpf" id="cpfU" name="cpfU">
 							<label>Observações</label>
 							<textarea style="resize: none" class="form-control input-sm" id="obsU" name="obsU" rows="2"></textarea>
 						</form>
@@ -96,7 +92,6 @@ if(isset($_SESSION['usuario'])){
 
 					$('#idclienteU').val(dado['id_cliente']);
 					$('#nomeU').val(dado['nome']);
-					$('#sobrenomeU').val(dado['sobrenome']);
 					$('#setorU').val(dado['setor']);
 					$('#emailU').val(dado['email']);
 					$('#telefoneU').val(dado['telefone']);
@@ -188,6 +183,15 @@ if(isset($_SESSION['usuario'])){
 			})
 		})
 	</script>
+	<script src="../js/jquery.maskedinput.js"></script>
+	<script>
+			$(function($){
+				$(".date").mask("99/99/9999");
+				$(".phone").mask("(99) 99999-9999");
+				$(".cpf").mask("999.999.999-99");
+				$(".ssn").mask("999-99-9999");
+			});
+		</script>
 
 
 	<?php 
