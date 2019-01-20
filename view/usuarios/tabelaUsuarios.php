@@ -14,7 +14,7 @@ require_once "../../classes/conexao.php";
 
 
 <table class="table table-hover table-condensed table-bordered" style="text-align: center;">
-	<caption><label>Usuários Cadastrados</label></caption>
+	<caption><label>Funcionários cadastrados</label></caption>
 	<tr>
 			<td>Nome</td>
 	 		<td>Usuário</td>

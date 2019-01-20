@@ -4,16 +4,9 @@ class fornecedores{
 	public function adicionar($dados){
 		$c = new conectar();
 		$conexao=$c->conexao();
+		$ativo = 1;
 
-		
-
-		$sql = "INSERT into fornecedores (id_usuario, nome, endereco, email, telefone, obs) VALUES ('$dados[0]', '$dados[1]', 
-		   '$dados[2]',
-		   '$dados[3]',
-			'$dados[4]',
-			'$dados[5]')";
-
-
+		$sql = "INSERT into fornecedores (id_usuario, nome, endereco, email, telefone, obs, ativo) VALUES ('$dados[0]', '$dados[1]', '$dados[2]', '$dados[3]', '$dados[4]', '$dados[5]', '$ativo')";
 
 		return mysqli_query($conexao, $sql);
 	}
@@ -60,9 +53,10 @@ class fornecedores{
 	public function excluir($id){
 		$c = new conectar();
 		$conexao=$c->conexao();
+		$ativo = 0;
 		
 
-		$sql = "DELETE from fornecedores where id_fornecedor = '$id' ";
+		$sql = "UPDATE fornecedores SET ativo = '$ativo' WHERE id_fornecedor = '$id'; ";
 
 		return mysqli_query($conexao, $sql);
 	}

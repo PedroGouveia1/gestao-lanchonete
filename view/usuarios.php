@@ -16,7 +16,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>Administrar usuários</h1>
+			<h1>Administrar funcionários</h1>
 			<div class="row">
 				<div class="col-sm-4">
 					<form id="frmRegistro">
@@ -37,7 +37,8 @@
 
 						<div class="form-group">
 							<label>Cantina</label>
-							<select disabled class="form-control" name="cantina" id="cantina">
+							<input type="hidden" id="idUsuarioU" name="cantina" id="cantina" value="<?php echo $_SESSION['cantina']; ?>">
+							<select disabled class="form-control" name="" id="">
 							<?php
 								$idcantina = $_SESSION['cantina'];
 								$consulta = "SELECT id_cantina, nome FROM cantinas";
@@ -246,14 +247,14 @@
 					data:datos,
 					url:"../procedimentos/login/registrarUsuario.php",
 					success:function(r){
-						
+						alert(r);
 
 						if(r==1){
 							$('#frmRegistro')[0].reset();
 							$('#tabelaUsuariosLoad').load('usuarios/tabelaUsuarios.php');
-							alertify.success("Adicionado com sucesso");
+							alertify.success("Funcionário cadastrado com sucesso.");
 						}else{
-							alertify.error("Falha ao adicionarrr");
+							alertify.error("Falha ao cadastrar funcionário.");
 						}
 					}
 				});

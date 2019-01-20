@@ -139,7 +139,6 @@ if(isset($_SESSION['usuario'])){
 				}
 
 				dados=$('#frmFornecedores').serialize();
-
 				$.ajax({
 					type:"POST",
 					data:dados,

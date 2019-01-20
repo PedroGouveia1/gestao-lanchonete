@@ -6,8 +6,9 @@ class usuarios{
 		$conexao=$c->conexao();
 
 		$data = date('Y-m-d');
+		$ativo = 1;
 
-		$sql = "INSERT into usuarios (nome, user, email, senha, dataCaptura, cantina, cargo) VALUES ('$dados[0]', '$dados[1]', '$dados[2]', '$dados[3]', '$data', '$dados[4]', '$dados[5]')";
+		$sql = "INSERT into usuarios (nome, user, email, senha, dataCaptura, cantina, cargo, ativo) VALUES ('$dados[0]', '$dados[1]', '$dados[2]', '$dados[3]', '$data', '$dados[4]', '$dados[5]', '$ativo')";
 
 		return mysqli_query($conexao, $sql);
 	}

@@ -46,6 +46,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Pessoas <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="clientes.php">Clientes</a></li>
+							<li><a href="usuarios.php">Funcionários</a></li>
 						</ul>
 					</li>
 
@@ -61,7 +62,7 @@
 
 							<?php if($_SESSION['cargo'] == 1) : ?>
 
-							<li> <a href="usuarios.php"><span class="glyphicon glyphicon-off"></span> Gestão de Usuários</a></li>
+							
 
 							<?php endif ?>
 
