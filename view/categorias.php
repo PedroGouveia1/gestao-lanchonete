@@ -14,11 +14,11 @@ if(isset($_SESSION['usuario'])){
 	<body>
 
 		<div class="container">
-			<h1>Categorias</h1>
+			<h1>Adicionar categoria</h1>
 			<div class="row">
 				<div class="col-sm-4">
 					<form id="frmCategorias">
-						<label>Categoria</label>
+						<label>Nome</label>
 						<input type="text" class="form-control input-sm" name="categoria" id="categoria">
 						<p></p>
 						<span class="btn btn-primary" id="btnAdicionarCategoria">Adicionar</span>
@@ -38,12 +38,12 @@ if(isset($_SESSION['usuario'])){
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">Atualizar Categoria</h4>
+						<h4 class="modal-title" id="myModalLabel">Atualizar categoria</h4>
 					</div>
 					<div class="modal-body">
 						<form id="frmCategoriaU">
 							<input type="text" hidden="" id="idcategoria" name="idcategoria">
-							<label>Categoria</label>
+							<label>Nome</label>
 							<input type="text" id="categoriaU" name="categoriaU" class="form-control input-sm">
 						</form>
 
@@ -69,7 +69,7 @@ if(isset($_SESSION['usuario'])){
 				vazios=validarFormVazio('frmCategorias');
 
 				if(vazios > 0){
-					alertify.alert("Preencha os Campos!!");
+					alertify.alert("Preencha o campo 'Nome'!");
 					return false;
 				}
 
@@ -85,7 +85,7 @@ if(isset($_SESSION['usuario'])){
 					$('#frmCategorias')[0].reset();
 
 					$('#tabelaCategoriaLoad').load("categorias/tabelaCategorias.php");
-					alertify.success("Categoria adicionada com sucesso!");
+					alertify.success("Categoria adicionada.");
 				}else{
 					alertify.error("Não foi possível adicionar a categoria");
 				}
@@ -110,9 +110,9 @@ if(isset($_SESSION['usuario'])){
 					success:function(r){
 						if(r==1){
 							$('#tabelaCategoriaLoad').load("categorias/tabelaCategorias.php");
-							alertify.success("Atualizado com Sucesso :)");
+							alertify.success("Categoria atualizada.");
 						}else{
-							alertify.error("Não foi possível atualizar :(");
+							alertify.error("Não foi possível atualizar a categoria.");
 						}
 					}
 				});

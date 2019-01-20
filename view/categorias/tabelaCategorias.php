@@ -6,14 +6,14 @@ require_once "../../classes/conexao.php";
 	$c = new conectar();
 		$conexao=$c->conexao();
 
-	$sql = "SELECT id_categoria, nome_categoria FROM categorias";
+	$sql = "SELECT id_categoria, nome_categoria FROM categorias WHERE ativo = 1 ORDER BY nome_categoria";
 	$result = mysqli_query($conexao, $sql);
 
 ?>
 
 
 <table class="table table-hover table-condensed table-bordered" style="text-align: center;">
-	<caption><label>Categorias :D</label></caption>
+	<caption><label>Gerenciar categorias</label></caption>
 	<tr>
 		<td>Categoria</td>
 		<td>Editar</td>
