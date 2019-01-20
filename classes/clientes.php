@@ -4,14 +4,16 @@ class clientes{
 	public function adicionarCliente($dados){
 		$c = new conectar();
 		$conexao=$c->conexao();
+		$ativo = 1;
 
-		$sql = "INSERT into clientes (id_usuario, nome, sobrenome, setor, email, telefone, cpf, obs) VALUES ('$dados[0]', '$dados[1]', 
+		$sql = "INSERT into clientes (id_usuario, nome, sobrenome, setor, email, telefone, cpf, obs, ativo) VALUES ('$dados[0]', '$dados[1]', 
 		   '$dados[2]',
 		   '$dados[3]',
 			'$dados[4]',
 			'$dados[5]',
 			'$dados[6]',
-			'$dados[7]')";
+			'$dados[7]',
+			'$ativo')";
 
 		return mysqli_query($conexao, $sql);
 	}
@@ -61,9 +63,9 @@ class clientes{
 	public function excluirCliente($id){
 		$c = new conectar();
 		$conexao=$c->conexao();
-		
+		$ativo = 0;
 
-		$sql = "DELETE from clientes where id_cliente = '$id' ";
+		$sql = "UPDATE clientes SET ativo = '$ativo' where id_cliente = '$id' ";
 
 		return mysqli_query($conexao, $sql);
 	}

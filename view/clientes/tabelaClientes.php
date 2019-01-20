@@ -6,7 +6,7 @@ require_once "../../classes/conexao.php";
 	$c = new conectar();
 		$conexao=$c->conexao();
 
-	$sql = "SELECT id_cliente, nome, sobrenome, setor, email, telefone, cpf FROM clientes";
+	$sql = "SELECT id_cliente, nome, sobrenome, setor, email, telefone, cpf FROM clientes WHERE ativo = 1";
 	$result = mysqli_query($conexao, $sql);
 
 ?>
@@ -40,7 +40,7 @@ require_once "../../classes/conexao.php";
 			</span>
 		</td>
 		<td>
-			<span class="btn btn-danger btn-xs" onclick="eliminarCliente('<?php echo $mostrar[0]; ?>')">
+			<span class="btn btn-danger btn-xs" onclick="eliminarCliente('<?php echo $mostrar[0]; ?>', '<?php echo $mostrar[1]; ?>')">
 				<span class="glyphicon glyphicon-remove"></span>
 			</span>
 		</td>

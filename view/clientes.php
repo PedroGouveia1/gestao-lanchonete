@@ -107,8 +107,8 @@ if(isset($_SESSION['usuario'])){
 			});
 		}
 
-		function eliminarCliente(idcliente){
-			alertify.confirm('Deseja Excluir este cliente?', function(){ 
+		function eliminarCliente(idcliente, nomeCliente){
+			alertify.confirm('Deseja excluir este cliente: <b>' + nomeCliente + '</b>?', function(){ 
 				$.ajax({
 					type:"POST",
 					data:"idcliente=" + idcliente,
@@ -118,7 +118,7 @@ if(isset($_SESSION['usuario'])){
 
 						if(r==1){
 							$('#tabelaClientesLoad').load("clientes/tabelaClientes.php");
-							alertify.success("Excluido com sucesso!!");
+							alertify.success("Excluido com sucesso!");
 						}else{
 							alertify.error("Não foi possível excluir");
 						}
@@ -157,7 +157,7 @@ if(isset($_SESSION['usuario'])){
 							$('#tabelaClientesLoad').load("clientes/tabelaClientes.php");
 							alertify.success("Cliente adicionado");
 						}else{
-							alertify.error("Não foi possível adicionar");
+							alertify.error("Não foi possível adicionar o cliente");
 						}
 					}
 				});
