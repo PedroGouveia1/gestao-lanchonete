@@ -28,48 +28,38 @@
 						<li class="active"><a href="inicio.php"><span class="glyphicon glyphicon-home"></span> Inicio</a>
 						</li>
 
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-shopping-cart"></span> Gestão de Produtos <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="categorias.php">Categorias</a></li>
+								<li><a href="produtos.php">Produtos</a></li>
+								<li><a href="fornecedores.php">Fornecedores</a></li>
+							</ul>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Pessoas <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="clientes.php">Clientes</a></li>
+								<li><a href="usuarios.php">Funcionários</a></li>
+							</ul>
+						</li>
 						
-					</li>
+						<li><a href="vendas.php"><span class="glyphicon glyphicon-usd"></span> Vendas</a>
+						</li>
+						
+						<li class="dropdown" >
+							<a href="#" style="color: red"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Usuario:   <span class="caret"></span></a>
+							<ul class="dropdown-menu">
 
+								<?php if($_SESSION['cargo'] == 1) : ?>
 
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-shopping-cart"></span> Gestão de Produtos <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="categorias.php">Categorias</a></li>
-							<li><a href="produtos.php">Produtos</a></li>
-							<li><a href="fornecedores.php">Fornecedores</a></li>
-						</ul>
-					</li>
+								<?php endif ?>
 
-
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Pessoas <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="clientes.php">Clientes</a></li>
-							<li><a href="usuarios.php">Funcionários</a></li>
-						</ul>
-					</li>
-
-
-
-					
-					<li><a href="#"><span class="glyphicon glyphicon-usd"></span> Vendas</a>
-					</li>
-					
-					<li class="dropdown" >
-						<a href="#" style="color: red"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Usuario:   <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-
-							<?php if($_SESSION['cargo'] == 1) : ?>
-
-							
-
-							<?php endif ?>
-
-							<li> <a style="color: red" href="../procedimentos/sair.php"><span class="glyphicon glyphicon-off"></span> Sair</a></li>
-							
-						</ul>
-					</li>
+								<li> <a style="color: red" href="../procedimentos/sair.php"><span class="glyphicon glyphicon-off"></span> Sair</a></li>
+								
+							</ul>
+						</li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->

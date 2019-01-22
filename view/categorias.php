@@ -69,7 +69,7 @@ if(isset($_SESSION['usuario'])){
 				vazios=validarFormVazio('frmCategorias');
 
 				if(vazios > 0){
-					alertify.alert("Preencha o campo 'Nome'!");
+					alertify.alert("Preencha o campo 'Nome'.");
 					return false;
 				}
 
