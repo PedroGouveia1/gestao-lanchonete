@@ -17,6 +17,23 @@ class vendas{
 		return $dados;
 	}
 
+	public function obterDadosVendas($idcliente){
+		$c= new conectar();
+		$conexao=$c->conexao();
+
+		$sql="SELECT * FROM fiados WHERE id_cliente='$idcliente'";
+		$result=mysqli_query($conexao,$sql);
+		$ver=mysqli_fetch_row($result);
+
+		$dados=array(
+			'id_fiado' => $ver[0],
+			'id_produto' => $ver[1],
+			'quantidade' => $ver[2]
+			'data' => $ver[3]
+		);		
+		return $dados;
+	}
+
 	public function criarVenda(){
 		$c= new conectar();
 		$conexao=$c->conexao();

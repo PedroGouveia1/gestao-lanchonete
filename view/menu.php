@@ -45,7 +45,12 @@
 							</ul>
 						</li>
 						
-						<li><a href="vendas.php"><span class="glyphicon glyphicon-usd"></span> Vendas</a>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-usd"></span> Fiados <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="vender.php">Realizar venda</a></li>
+								<li><a href="relatorio_fiados.php">Relatório de vendas</a></li>
+							</ul>
 						</li>
 						
 						<li class="dropdown" >

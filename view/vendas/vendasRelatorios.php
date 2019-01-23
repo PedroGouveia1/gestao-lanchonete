@@ -14,53 +14,72 @@
 	$result=mysqli_query($conexao,$sql); 
 	?>
 
+<div class="row" style="margin-top: 1%;">
+	<div class="col-sm-1"></div>
+	<div class="col-sm-10">
+		<form id="frmBuscarVendas">
+			<div class="form-group row">
+				<label for="cliente" class="col-sm-1 col-form-label">Cliente: </label>
+				<div class="col-sm-9">
+					<select class="form-control input-group" id="cliente" name="cliente">
+						<?php
+							$sql="SELECT id_cliente, nome from clientes WHERE ativo = 1 ORDER BY nome;";
+							$result=mysqli_query($conexao,$sql);
+							while ($cliente=mysqli_fetch_row($result)):
+						?>
+						<option value="<?php echo $cliente[0] ?>"><?php echo $cliente[1];?></option>
+						<?php endwhile; ?>
+					</select>
+				</div>
+				<div class="col-sm-2">
+					<button id="buscarVendas" class="btn btn-primary btn-xs">Buscar</button>
+				</div>
+			</div>
+		</form>	
+	</div>
+</div>
+
 
 <div class="row">
 	<div class="col-sm-1"></div>
 	<div class="col-sm-10">
-		<div class="table-responsive">
-			<table class="table table-hover table-condensed table-bordered" style="text-align: center;">
-				<caption><label>Vendas</label></caption>
-				<tr>
-					<td>Código</td>
-					<td>Data</td>
-					<td>Cliente</td>
-					<td>Total da Compra</td>
-					<td>Comprovante</td>
-					<td>Relatório</td>
-				</tr>
-		<?php while($ver=mysqli_fetch_row($result)): ?>
-				<tr>
-					<td><?php echo $ver[0] ?></td>
-					<td><?php echo date("d/m/Y", strtotime($ver[1])) ?></td>
-					<td>
-						<?php
-							if($obj->nomeCliente($ver[2])==" "){
-								echo "S/C";
-							}else{
-								echo $obj->nomeCliente($ver[2]);
-							}
-						 ?>
-					</td>
-					<td>
-						<?php 
-							echo "R$ ".$obj->obterTotal($ver[0]). ",00";
-						 ?>
-					</td>
-					<td>
-						<a href="../procedimentos/vendas/criarComprovantePdf.php?idvenda=<?php echo $ver[0] ?>" class="btn btn-danger btn-sm">
-							Comprovante <span class="glyphicon glyphicon-list-alt"></span>
-						</a>
-					</td>
-					<td>
-						<a href="../procedimentos/vendas/criarRelatorioPdf.php?idvenda=<?php echo $ver[0] ?>" class="btn btn-danger btn-sm">
-							Relatório <span class="glyphicon glyphicon-file"></span>
-						</a>	
-					</td>
-				</tr>
-		<?php endwhile; ?>
-			</table>
-		</div>
+		<div id="tabelaVendasIDLoad"></div> <!-- Carregar tabela de compras do cliente -->
+		
 	</div>
 	<div class="col-sm-1"></div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$('#tabelaVendasIDLoad').load("vendas/tabelaVendasID.php");
+
+		$('#cliente').change(function(){
+
+			$.ajax({
+				type:"POST",
+				data:"idcliente=" + $('#cliente').val(),
+				url:"../procedimentos/vendas/obterDadosVendas.php",
+				success:function(r){
+					dado=jQuery.parseJSON(r);
+
+					$('#descricaoV').val(dado['descricao']);
+
+					$('#quantidadeV').val(dado['quantidade']);
+					$('#precoV').val(dado['preco']);
+					
+					$('#imgProduto').prepend('<img class="img-thumbnail" id="imgp" src="' + dado['url'] + '" />');
+					
+				}
+			});
+		});
+	}
+</script>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#clienteRelatorio').select2();
+
+	});
+</script>
