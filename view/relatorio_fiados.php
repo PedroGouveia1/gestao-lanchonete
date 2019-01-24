@@ -85,7 +85,23 @@
 	<div class="row">
 		<div class="col-sm-1"></div>
 		<div class="col-sm-10">
-			<?php if(isset($_GET['cliente'])){ ?><button id="imprimirRelatorio" class="btn btn-sm btn-block btn-danger">Imprimir</button><?php } ?>
+
+			<!--Botão de imprimir -->
+			<form method="POST" id="imprimirRelatorio" action="vendas/imprimirRelatorio.php">
+				<input type="hidden" name="de" id="de" value="<?php echo $de; ?>">
+				<input type="hidden" name="ate" id="ate" value="<?php echo $ate; ?>">
+				<input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
+
+				<?php
+					if(isset($_GET['cliente'])){
+				?>
+				<button type="submit" id="imprimirRelatorio" class="btn btn-sm btn-block btn-danger">Imprimir</button>
+				<?php
+					}
+				?>
+
+			</form>
+
 			<div class="table-responsive" style="margin-top: 1%;">
 
 				<table class="table table-hover table-condensed table-bordered" style="text-align: center;">
