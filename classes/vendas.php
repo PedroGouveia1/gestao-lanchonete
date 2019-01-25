@@ -5,8 +5,9 @@ class vendas{
 		$c= new conectar();
 		$conexao=$c->conexao();
 
-		$sql="SELECT nome, quantidade, preco FROM produtos WHERE id_produto='$idproduto'";
+		$sql="SELECT nome, quantidade, preco from produtos WHERE id_produto = $idproduto";
 		$result=mysqli_query($conexao,$sql);
+
 		$ver=mysqli_fetch_row($result);
 
 		$dados=array(
@@ -28,7 +29,7 @@ class vendas{
 		$dados=array(
 			'id_fiado' => $ver[0],
 			'id_produto' => $ver[1],
-			'quantidade' => $ver[2]
+			'quantidade' => $ver[2],
 			'data' => $ver[3]
 		);		
 		return $dados;
@@ -51,7 +52,7 @@ class vendas{
 										id_produto,
 										quantidade,
 										id_funcionario,
-										data)
+										dataVenda)
 							values (
 									'$d[6]',
 									'$d[0]',

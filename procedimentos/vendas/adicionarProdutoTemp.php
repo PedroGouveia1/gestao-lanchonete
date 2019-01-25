@@ -5,7 +5,7 @@
 	$conexao=$c->conexao();
 
 	$idcliente=$_POST['clienteVenda'];
-	$idproduto=$_POST['produtoVenda'];
+	$idproduto=$_POST['idProduto'];
 	$quantidade=$_POST['quantidadeV'];
 	$quantV=$_POST['quantV'];
 	$preco=$_POST['precoV'];

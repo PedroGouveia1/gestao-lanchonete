@@ -23,10 +23,10 @@ require_once "../../classes/conexao.php";
 				<?php endwhile; ?>
 			</select>
 			<label>Produto</label>
-			<select class="form-control input-sm" id="produtoVenda" name="produtoVenda">
+			<select class="form-control input-sm" id="idProduto" name="idProduto">
 				<option value="0" disabled="" selected="">Selecione</option>
 				<?php
-				$sql="SELECT id_produto, nome	FROM produtos ORDER BY nome";
+				$sql="SELECT id_produto, nome	FROM produtos WHERE ativo = 1 ORDER BY nome";
 				$result=mysqli_query($conexao,$sql);
 
 				while ($produto=mysqli_fetch_row($result)):
@@ -58,11 +58,11 @@ require_once "../../classes/conexao.php";
 
 		$('#tabelaVendasTempLoad').load("vendas/tabelaVendasTemp.php");
 
-		$('#produtoVenda').change(function(){
+		$('#idProduto').change(function(){
 
 			$.ajax({
 				type:"POST",
-				data:"idproduto=" + $('#produtoVenda').val(),
+				data:"idproduto=" + $('#idProduto').val(),
 				url:"../procedimentos/vendas/obterDadosProdutos.php",
 				success:function(r){
 					dado=jQuery.parseJSON(r);
@@ -112,13 +112,13 @@ require_once "../../classes/conexao.php";
 
 		$('#btnLimparVendas').click(function(){
 
-		$.ajax({
-			url:"../procedimentos/vendas/limparTemp.php",
-			success:function(r){
-				$('#tabelaVendasTempLoad').load("vendas/tabelaVendasTemp.php");
-			}
+			$.ajax({
+				url:"../procedimentos/vendas/limparTemp.php",
+				success:function(r){
+					$('#tabelaVendasTempLoad').load("vendas/tabelaVendasTemp.php");
+				}
+			});
 		});
-	});
 
 	});
 </script>
@@ -134,7 +134,7 @@ require_once "../../classes/conexao.php";
 			success:function(r){
 				
 				$('#tabelaVendasTempLoad').load("vendas/tabelaVendasTemp.php");
-				alertify.success("Estoque Atualizado com Sucesso!!");
+				alertify.success("Estoque atualizado com sucesso!");
 			}
 		});
 	}
@@ -174,7 +174,7 @@ require_once "../../classes/conexao.php";
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#clienteVenda').select2();
-		$('#produtoVenda').select2();
+		$('#idProduto').select2();
 
 	});
 </script>
