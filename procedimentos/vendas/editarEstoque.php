@@ -8,7 +8,7 @@ require_once "../../classes/conexao.php";
 	$dados=$_POST['dados'];
 
 	$idproduto = $dados[0];
-	$quantidade = $dados[3].$dados[4].$dados[5].$dados[6];
+	$quantidade = $dados[2].$dados[3].$dados[4].$dados[5];
 
 
 	

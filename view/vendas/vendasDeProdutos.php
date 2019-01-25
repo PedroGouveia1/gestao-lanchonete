@@ -132,7 +132,7 @@ require_once "../../classes/conexao.php";
 			data:"dados=" + dados,
 			url:"../procedimentos/vendas/editarEstoque.php",
 			success:function(r){
-				
+				console.log(r);
 				$('#tabelaVendasTempLoad').load("vendas/tabelaVendasTemp.php");
 				alertify.success("Estoque atualizado com sucesso!");
 			}

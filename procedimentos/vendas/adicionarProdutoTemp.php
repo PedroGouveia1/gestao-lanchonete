@@ -29,7 +29,6 @@
 				$ncliente."||".
 				$quantidade."||".
 				$quantV."||".
-				
 				$idcliente;
 
 	$_SESSION['tabelaComprasTemp'][]=$produto;

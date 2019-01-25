@@ -36,7 +36,7 @@
 
  			
 
- 			<span class="btn btn-danger btn-xs" onclick="fecharP('<?php echo $i; ?>'), editarP('<?php echo $d[0]; ?>, <?php echo $d[5]; ?>')">
+ 			<span class="btn btn-danger btn-xs" onclick="fecharP('<?php echo $i; ?>'), editarP('<?php echo $d[0]; ?>, <?php echo $d[4]; ?>')">
  				<span class="glyphicon glyphicon-remove"></span>
  			</span>
  		</td>
