@@ -68,7 +68,7 @@
 		$ate = $_GET['ate'];
 		$id = $_GET['cliente'];
 		$sql = "SELECT 	fi.id_fiado,
-										fi.data,
+										fi.dataVenda,
 										cl.nome,
 										pr.nome,
 										pr.preco,
@@ -77,8 +77,8 @@
 										FROM fiado AS fi
 										INNER JOIN clientes AS cl ON fi.id_cliente = cl.id_cliente
 										INNER JOIN produtos AS pr ON fi.id_produto = pr.id_produto
-										WHERE fi.id_cliente = '$id' and data BETWEEN '$de' AND '$ate'
-										ORDER BY fi.data";
+										WHERE fi.id_cliente = '$id' and dataVenda BETWEEN '$de' AND '$ate'
+										ORDER BY fi.dataVenda";
 		$result=mysqli_query($conexao,$sql);
 		$total = 0;
 ?>
