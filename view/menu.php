@@ -31,17 +31,17 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-shopping-cart"></span> Gestão de Produtos <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="categorias.php">Categorias</a></li>
-								<li><a href="produtos.php">Produtos</a></li>
-								<li><a href="fornecedores.php">Fornecedores</a></li>
+								<li><a href="categorias.php">Gerir categorias</a></li>
+								<li><a href="fornecedores.php">Gerir fornecedores</a></li>
+								<li><a href="produtos.php">Gerir produtos</a></li>
 							</ul>
 						</li>
 
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Pessoas <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Gestão de Pessoas <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="clientes.php">Clientes</a></li>
-								<li><a href="usuarios.php">Funcionários</a></li>
+								<li><a href="clientes.php">Gerir clientes</a></li>
+								<li><a href="usuarios.php">Gerir funcionários</a></li>
 							</ul>
 						</li>
 						
