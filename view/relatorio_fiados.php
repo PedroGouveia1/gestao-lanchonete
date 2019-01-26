@@ -42,12 +42,12 @@
 					</div>
 				</div>
 				<div class=" form group row" style="margin-top: -1.5%;">
-					<label for="cliente" class="col-sm-1 col-form-label"><p style="font-size: 20px; margin-top: 5% !important">De: </p></label>
+					<label for="de" class="col-sm-1 col-form-label"><p style="font-size: 20px; margin-top: 5% !important">De: </p></label>
 					<div class="col-sm-5">
 						<input class="form-control input-group" type="date" id="de" name="de">
 					</div>
 
-					<label for="cliente" class="col-sm-1 col-form-label"><p style="font-size: 20px; margin-top: 5% !important">Até: </p></label>
+					<label for="ate" class="col-sm-1 col-form-label"><p style="font-size: 20px; margin-top: 5% !important">Até: </p></label>
 					<div class="col-sm-5">
 						<input class="form-control input-group" type="date" id="ate" name="ate">
 					</div>
