@@ -63,7 +63,7 @@ if(isset($_SESSION['usuario'])){
 					</form>
 				</div>
 				<div class="col-sm-8">
-					<div id="tabelaProdutosLoad"></div>
+					<div id="tabelaFinanceirosLoad"></div>
 				</div>
 			</div>
 		</div>
@@ -140,7 +140,7 @@ if(isset($_SESSION['usuario'])){
 					url:"../procedimentos/produtos/eliminarProdutos.php",
 					success:function(r){
 						if(r==1){
-							$('#tabelaProdutosLoad').load("produtos/tabelaProdutos.php");
+							$('#tabelaFinanceirosLoad').load("financeiros/tabelaFinanceiros.php");
 							alertify.success("Produto excluido com sucesso.");
 						}else{
 							alertify.error("Não excluido.");
@@ -164,7 +164,7 @@ if(isset($_SESSION['usuario'])){
 					url:"../procedimentos/produtos/atualizarProdutos.php",
 					success:function(r){
 						if(r==1){
-							$('#tabelaProdutosLoad').load("produtos/tabelaProdutos.php");
+							$('#tabelaFinanceirosLoad').load("financeiros/tabelaFinanceiros.php");
 							alertify.success("Editado com sucesso.");
 						}else{
 							alertify.error("Erro ao editar produto.");
@@ -177,7 +177,7 @@ if(isset($_SESSION['usuario'])){
 
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('#tabelaProdutosLoad').load("produtos/tabelaProdutos.php");
+			$('#tabelaFinanceirosLoad').load("financeiros/tabelaFinanceiros.php");
 
 			$('#btnAddCompra').click(function(){
 
@@ -200,11 +200,10 @@ if(isset($_SESSION['usuario'])){
 					processData: false,
 
 					success:function(r){
-						alert(r);
-						
+												
 						if(r == 1){
 							$('#frmProdutos')[0].reset();
-							$('#tabelaProdutosLoad').load("produtos/tabelaProdutos.php");
+							$('#tabelaFinanceirosLoad').load("financeiros/tabelaFinanceiros.php");
 							alertify.success("Adicionado com sucesso!");
 						}else{
 							alertify.error("Falha ao adicionar");
