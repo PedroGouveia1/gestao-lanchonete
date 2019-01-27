@@ -5,10 +5,9 @@
 		$c= new conectar();
 		$conexao=$c->conexao();
 		$ativo = 1;
-		$novoEstoque = $dados[6] + $dados[2];
 
 		$atualizaEstoque = "UPDATE 	produtos
-												SET 		quantidade = '$novoEstoque'
+												SET 		quantidade = (quantidade + $dados[2])
 												WHERE 	id_produto = '$dados[0]'";
 		$result = mysqli_query($conexao,$atualizaEstoque);
 
@@ -64,11 +63,22 @@
 			$c= new conectar();
 			$conexao=$c->conexao();
 
+			$atualizaEstoque = "UPDATE 	produtos
+													SET 		quantidade = (quantidade - $dados[5])
+													WHERE 	id_produto = '$dados[4]'";
+			$result = mysqli_query($conexao,$atualizaEstoque);
+
+			$atualizaEstoque = "UPDATE 	produtos
+													SET 		quantidade = (quantidade + $dados[2])
+													WHERE 	id_produto = '$dados[4]'";
+			$result = mysqli_query($conexao,$atualizaEstoque);
+
 			$sql="UPDATE 	compras
-						set 		id_fornecedor='$dados[1]',
+						SET 		id_produto = '$dados[4]',
+										id_fornecedor='$dados[1]',
 										quantidade='$dados[2]',
 										preco='$dados[3]'
-						where id_compras='$dados[0]'";
+						where 	id_compras='$dados[0]'";
 
 			return mysqli_query($conexao,$sql);
 		}

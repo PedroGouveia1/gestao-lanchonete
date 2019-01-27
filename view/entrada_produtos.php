@@ -62,6 +62,8 @@ if(isset($_SESSION['usuario'])){
 						<span id="btnAddCompra" class="btn btn-primary">Adicionar</span>
 					</form>
 				</div>
+
+
 				<div class="col-sm-8">
 					<div id="tabelaFinanceirosLoad"></div>
 				</div>
@@ -78,11 +80,14 @@ if(isset($_SESSION['usuario'])){
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h4 class="modal-title" id="myModalLabel">Editar compra</h4>
 					</div>
+
+
 					<div class="modal-body">
 						<form id="frmCompraU" enctype="multipart/form-data">
 							<input type="text" id="idCompra" hidden="" name="idCompra">
 							<label for="produtoSelectU">Produto</label>
-							<select class="form-control input-sm" disabled="" id="produtoSelectU" name="produtoSelectU">
+							<input type="hidden" id="produtoSelectU" name="produtoSelectU">
+							<select class="form-control input-sm" disabled="">
 								<?php
 									$sql="SELECT id_produto, nome FROM produtos ORDER BY nome";
 									$result=mysqli_query($conexao,$sql);

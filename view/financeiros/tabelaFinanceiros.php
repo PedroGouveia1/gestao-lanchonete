@@ -16,7 +16,7 @@
 				inner join fornecedores as fo
 				on fo.id_fornecedor=co.id_fornecedor
 				WHERE co.ativo = 1
-				ORDER BY co.id_compras";
+				ORDER BY co.id_compras desc";
 	$result=mysqli_query($conexao,$sql);
 
 	
@@ -29,12 +29,12 @@
 		<thead><tr>
 		<td>Produto</td>
 		<td>Fornecedor</td>
-		<td>Quantidade</td>
+		<td>Qtd</td>
 		<td>Preço und.</td>
 		<td>Preço total</td>
 		<td>Data</td>
 		<td>Editar</td>
-		<td>Excluir</td>
+		<!--<td>Excluir</td>-->
 		</thead>
 	</tr>
 
@@ -53,11 +53,11 @@
 				<span class="glyphicon glyphicon-pencil"></span>
 			</span>
 		</td>
-		<td>
+		<!--<td>
 			<span class="btn btn-danger btn-xs" onclick="eliminarProduto('<?php echo $mostrar[6] ?>', '<?php echo $mostrar[0] ?>', '<?php echo $mostrar[1] ?>')">
 				<span class="glyphicon glyphicon-remove"></span>
 			</span>
-		</td>
+		</td>-->
 	</tr>
 <?php endwhile; ?>
 </table>
