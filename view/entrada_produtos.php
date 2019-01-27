@@ -206,9 +206,9 @@ if(isset($_SESSION['usuario'])){
 					processData: false,
 
 					success:function(r){
-												
+						alert(r);	
 						if(r == 1){
-							$('#frmProdutos')[0].reset();
+							$('#frmCompra')[0].reset();
 							$('#tabelaFinanceirosLoad').load("financeiros/tabelaFinanceiros.php");
 							alertify.success("Adicionado com sucesso!");
 						}else{

@@ -16,7 +16,7 @@
 				inner join fornecedores as fo
 				on fo.id_fornecedor=co.id_fornecedor
 				WHERE co.ativo = 1
-				ORDER BY co.dataCompra";
+				ORDER BY co.id_compras";
 	$result=mysqli_query($conexao,$sql);
 
 	

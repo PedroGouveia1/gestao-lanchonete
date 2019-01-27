@@ -40,8 +40,6 @@ if(isset($_SESSION['usuario'])){
 						</select>
 						<label>Nome</label>
 						<input type="text" class="form-control input-sm" id="nome" name="nome">
-						<label>Quantidade</label>
-						<input type="text" class="form-control input-sm" id="quantidade" name="quantidade">
 						<label>Preço</label>
 						<input type="text" class="form-control input-sm dinheiro" id="preco" name="preco">
 						
@@ -186,7 +184,7 @@ if(isset($_SESSION['usuario'])){
 					processData: false,
 
 					success:function(r){
-
+						
 						
 						if(r == 1){
 							$('#frmProdutos')[0].reset();

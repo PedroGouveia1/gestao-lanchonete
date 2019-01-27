@@ -11,7 +11,6 @@
 		$_POST['categoriaSelect'],
 		$iduser,
 		$_POST['nome'],
-		$_POST['quantidade'],
 		$preco
 
 	);

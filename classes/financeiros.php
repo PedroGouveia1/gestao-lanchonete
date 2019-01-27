@@ -5,6 +5,12 @@
 		$c= new conectar();
 		$conexao=$c->conexao();
 		$ativo = 1;
+		$novoEstoque = $dados[6] + $dados[2];
+
+		$atualizaEstoque = "UPDATE 	produtos
+												SET 		quantidade = '$novoEstoque'
+												WHERE 	id_produto = '$dados[0]'";
+		$result = mysqli_query($conexao,$atualizaEstoque);
 
 		$sql="INSERT into compras (
 									id_produto,

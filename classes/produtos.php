@@ -23,6 +23,7 @@
 			$c= new conectar();
 			$conexao=$c->conexao();
 			$ativo = 1;
+			$quantidade = 0;
 			$data=date('Y-m-d');
 
 			$sql="INSERT into produtos (id_categoria,
@@ -35,8 +36,8 @@
 							values ('$dados[0]',
 									'$dados[1]',
 									'$dados[2]',
+									'$quantidade',
 									'$dados[3]',
-									'$dados[4]',
 									'$data',
 									'$ativo')";
 			return mysqli_query($conexao,$sql);
