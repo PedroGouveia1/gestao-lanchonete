@@ -59,35 +59,13 @@ if(isset($_SESSION['usuario'])){
 
 
 					<div class="modal-body">
-						<form id="frmCompraU" enctype="multipart/form-data">
-							<input type="text" id="idCompra" hidden="" name="idCompra">
-							<label for="produtoSelectU">Produto</label>
-							<input type="hidden" id="produtoSelectU" name="produtoSelectU">
-							<select class="form-control input-sm" disabled="">
-								<?php
-									$sql="SELECT id_produto, nome FROM produtos ORDER BY nome";
-									$result=mysqli_query($conexao,$sql);
-									while($mostrar=mysqli_fetch_row($result)):
-								?>
-									<option value="<?php echo $mostrar[0] ?>"><?php echo $mostrar[1]; ?></option>
-								<?php endwhile; ?>
-							</select>
-							<label for="fornecedorSelectU">Fornecedor</label>
-							<select class="form-control input-sm" id="fornecedorSelectU" name="fornecedorSelectU">
-								<?php
-									$sql="SELECT id_fornecedor, nome FROM fornecedores ORDER BY nome";
-									$result=mysqli_query($conexao,$sql);
-									while($mostrar=mysqli_fetch_row($result)):
-								?>
-									<option value="<?php echo $mostrar[0] ?>"><?php echo $mostrar[1]; ?></option>
-								<?php endwhile; ?>
-							</select>
-							<label>Quantidade</label>
-							<input type="text" class="form-control input-sm" id="quantidadeU" name="quantidadeU">
-							<label>Preço</label>
-							<input type="text" class="form-control input-sm dinheiro" id="precoU" name="precoU">
-							
-						</form>
+						<form id="frmCaixaU" enctype="multipart/form-data">
+						<label for="produtoSelect">Data</label>
+						<input class="form-control input-sm" type="date" name="dataCaixaU" id="dataCaixaU">
+						<label>Valor</label>
+						<input type="text" class="form-control input-sm dinheiro" id="precoU" name="precoU">
+						<p></p>
+					</form>
 					</div>
 					<div class="modal-footer">
 						<button id="btnAtualizarCompra" type="button" class="btn btn-warning" data-dismiss="modal">Editar</button>
@@ -101,17 +79,15 @@ if(isset($_SESSION['usuario'])){
 	</html>
 
 	<script type="text/javascript">
-		function addDadosCompra(idcompra){
+		function addDadosCaixa(idcaixa){
 			$.ajax({
 				type:"POST",
-				data:"idcompra=" + idcompra,
-				url:"../procedimentos/financeiros/obterDados.php",
+				data:"idcaixa=" + idcaixa,
+				url:"../procedimentos/financeiros/obterDadosCaixa.php",
 				success:function(r){
+					console.log(r);
 					dado=jQuery.parseJSON(r);
-					$('#idCompra').val(dado['id_compras']);
-					$('#produtoSelectU').val(dado['id_produto']);
-					$('#fornecedorSelectU').val(dado['id_fornecedor']);
-					$('#quantidadeU').val(dado['quantidade']);
+					$('#dataCaixaU').val(dado['dataCaixa']);
 					$('#precoU').val(dado['preco']);
 
 				}

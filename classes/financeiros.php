@@ -119,5 +119,26 @@
 
 		}
 
+
+		public function obterDadosCaixa($id){
+			$c= new conectar();
+			$conexao=$c->conexao();
+
+			$sql="SELECT 	dataCaixa,
+										valor
+										FROM caixa
+										WHERE id_caixa = '$id'";
+			$result=mysqli_query($conexao,$sql);
+
+			$mostrar=mysqli_fetch_row($result);
+
+			$dados=array(
+					"dataCaixa" => $mostrar[0],
+					"preco" => number_format($mostrar[1], 2, ',', '.')
+					);
+
+			return $dados;
+		}
+
 	}
 ?>
