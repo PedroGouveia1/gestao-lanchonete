@@ -98,5 +98,26 @@
 
 		}
 
+
+
+		public function inserirCaixa($dados){
+
+			$c= new conectar();
+			$conexao=$c->conexao();
+
+			$sql="INSERT into caixa (
+										dataCaixa,
+										valor,
+										id_usuario
+										) 
+								values (
+										'$dados[0]',
+										'$dados[1]',
+										'$dados[2]'
+										)";
+			return mysqli_query($conexao,$sql);
+
+		}
+
 	}
 ?>

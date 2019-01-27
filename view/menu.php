@@ -48,9 +48,10 @@ require_once "dependencias.php";
 						</li>
 
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-usd"></span> Caixa <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-usd"></span> Financeiro <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="entrada_produtos.php">Entrada de produtos</a></li>
+								<li><a href="caixa.php">Caixa diário</a></li>
 							</ul>
 						</li>
 						
