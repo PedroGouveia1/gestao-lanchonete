@@ -70,7 +70,6 @@ if(isset($_SESSION['usuario'])){
 							<input type="text" id="idProduto" hidden="" name="idProduto">
 							<label>Categoria</label>
 							<select class="form-control input-sm" id="categoriaSelectU" name="categoriaSelectU">
-								<option value="A">Selecionar a categoria</option>
 								<?php 
 								$sql="SELECT id_categoria,nome_categoria
 								from categorias";

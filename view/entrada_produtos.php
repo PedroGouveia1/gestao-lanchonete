@@ -71,30 +71,36 @@ if(isset($_SESSION['usuario'])){
 		<!-- Button trigger modal -->
 		
 		<!-- Modal -->
-		<div class="modal fade" id="abremodalUpdateProduto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal fade" id="abremodalUpdateCompra" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog modal-sm" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">Editar produto</h4>
+						<h4 class="modal-title" id="myModalLabel">Editar compra</h4>
 					</div>
 					<div class="modal-body">
-						<form id="frmProdutosU" enctype="multipart/form-data">
-							<input type="text" id="idProduto" hidden="" name="idProduto">
-							<label>Categoria</label>
-							<select class="form-control input-sm" id="categoriaSelectU" name="categoriaSelectU">
-								<option value="A">Selecionar a categoria</option>
-								<?php 
-								$sql="SELECT id_categoria,nome_categoria
-								from categorias";
-								$result=mysqli_query($conexao,$sql);
+						<form id="frmCompraU" enctype="multipart/form-data">
+							<input type="text" id="idCompra" hidden="" name="idCompra">
+							<label for="produtoSelectU">Produto</label>
+							<select class="form-control input-sm" disabled="" id="produtoSelectU" name="produtoSelectU">
+								<?php
+									$sql="SELECT id_produto, nome FROM produtos ORDER BY nome";
+									$result=mysqli_query($conexao,$sql);
+									while($mostrar=mysqli_fetch_row($result)):
 								?>
-								<?php while($mostrar=mysqli_fetch_row($result)): ?>
 									<option value="<?php echo $mostrar[0] ?>"><?php echo $mostrar[1]; ?></option>
 								<?php endwhile; ?>
 							</select>
-							<label>Nome</label>
-							<input type="text" class="form-control input-sm" id="nomeU" name="nomeU">
+							<label for="fornecedorSelectU">Fornecedor</label>
+							<select class="form-control input-sm" id="fornecedorSelectU" name="fornecedorSelectU">
+								<?php
+									$sql="SELECT id_fornecedor, nome FROM fornecedores ORDER BY nome";
+									$result=mysqli_query($conexao,$sql);
+									while($mostrar=mysqli_fetch_row($result)):
+								?>
+									<option value="<?php echo $mostrar[0] ?>"><?php echo $mostrar[1]; ?></option>
+								<?php endwhile; ?>
+							</select>
 							<label>Quantidade</label>
 							<input type="text" class="form-control input-sm" id="quantidadeU" name="quantidadeU">
 							<label>Preço</label>
@@ -103,7 +109,7 @@ if(isset($_SESSION['usuario'])){
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button id="btnAtualizarProduto" type="button" class="btn btn-warning" data-dismiss="modal">Editar</button>
+						<button id="btnAtualizarCompra" type="button" class="btn btn-warning" data-dismiss="modal">Editar</button>
 
 					</div>
 				</div>
@@ -114,17 +120,16 @@ if(isset($_SESSION['usuario'])){
 	</html>
 
 	<script type="text/javascript">
-		function addDadosProduto(idproduto){
+		function addDadosCompra(idcompra){
 			$.ajax({
 				type:"POST",
-				data:"idpro=" + idproduto,
-				url:"../procedimentos/produtos/obterDados.php",
+				data:"idcompra=" + idcompra,
+				url:"../procedimentos/financeiros/obterDados.php",
 				success:function(r){
-					
 					dado=jQuery.parseJSON(r);
-					$('#idProduto').val(dado['id_produto']);
-					$('#categoriaSelectU').val(dado['id_categoria']);
-					$('#nomeU').val(dado['nome']);
+					$('#idCompra').val(dado['id_compras']);
+					$('#produtoSelectU').val(dado['id_produto']);
+					$('#fornecedorSelectU').val(dado['id_fornecedor']);
 					$('#quantidadeU').val(dado['quantidade']);
 					$('#precoU').val(dado['preco']);
 
@@ -132,12 +137,12 @@ if(isset($_SESSION['usuario'])){
 			});
 		}
 
-		function eliminarProduto(idProduto, nomeProduto){
-			alertify.confirm('Deseja excluir este produto: <b>' + nomeProduto + '</b>?', function(){ 
+		function eliminarProduto(idCompra, nomeProduto,fornecedor){
+			alertify.confirm('Deseja excluir esta compra: <strong>' + nomeProduto + '</strong> em <strong>' + fornecedor + '</strong>?', function(){ 
 				$.ajax({
 					type:"POST",
-					data:"idproduto=" + idProduto,
-					url:"../procedimentos/produtos/eliminarProdutos.php",
+					data:"idcompra=" + idCompra,
+					url:"../procedimentos/financeiros/eliminarCompras.php",
 					success:function(r){
 						if(r==1){
 							$('#tabelaFinanceirosLoad').load("financeiros/tabelaFinanceiros.php");
@@ -155,14 +160,15 @@ if(isset($_SESSION['usuario'])){
 
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('#btnAtualizarProduto').click(function(){
+			$('#btnAtualizarCompra').click(function(){
 
-				dados=$('#frmProdutosU').serialize();
+				dados=$('#frmCompraU').serialize();
 				$.ajax({
 					type:"POST",
 					data:dados,
-					url:"../procedimentos/produtos/atualizarProdutos.php",
+					url:"../procedimentos/financeiros/atualizarCompra.php",
 					success:function(r){
+						alert(r);
 						if(r==1){
 							$('#tabelaFinanceirosLoad').load("financeiros/tabelaFinanceiros.php");
 							alertify.success("Editado com sucesso.");
