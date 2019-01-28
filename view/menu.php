@@ -51,7 +51,7 @@ require_once "dependencias.php";
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-usd"></span> Financeiro <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="entrada_produtos.php">Entrada de produtos</a></li>
-								<li><a href="caixa.php">Caixa diário</a></li>
+								<li><a href="relatorio_caixa.php">Caixa diário</a></li>
 							</ul>
 						</li>
 						
