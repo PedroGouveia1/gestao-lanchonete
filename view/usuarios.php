@@ -247,7 +247,7 @@
 					data:datos,
 					url:"../procedimentos/login/registrarUsuario.php",
 					success:function(r){
-						alert(r);
+
 
 						if(r==1){
 							$('#frmRegistro')[0].reset();

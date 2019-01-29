@@ -173,7 +173,7 @@ if(isset($_SESSION['usuario'])){
 					data:dados,
 					url:"../procedimentos/financeiros/atualizarCompra.php",
 					success:function(r){
-						alert(r);
+
 						if(r==1){
 							$('#tabelaFinanceirosLoad').load("financeiros/tabelaFinanceiros.php");
 							alertify.success("Editado com sucesso.");
@@ -211,7 +211,7 @@ if(isset($_SESSION['usuario'])){
 					processData: false,
 
 					success:function(r){
-						alert(r);	
+							
 						if(r == 1){
 							$('#frmCompra')[0].reset();
 							$('#tabelaFinanceirosLoad').load("financeiros/tabelaFinanceiros.php");

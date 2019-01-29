@@ -76,7 +76,7 @@
 			data:dados,
 			url:"procedimentos/login/login.php",
 			success:function(r){
-				//alert(r);
+
 				if(r==1){
 					window.location="view/inicio.php";
 				}else{

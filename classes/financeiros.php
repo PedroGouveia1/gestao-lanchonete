@@ -140,5 +140,67 @@
 			return $dados;
 		}
 
+
+		public function inserirGastosExtras($dados){
+
+			$c= new conectar();
+			$conexao=$c->conexao();
+
+			$sql="INSERT INTO gastos_extras (
+										descricao,
+										valor,
+										id_usuario,
+										dataGasto
+										) 
+								values (
+										'$dados[0]',
+										'$dados[1]',
+										'$dados[2]',
+										'$dados[3]'
+										)";
+			return mysqli_query($conexao,$sql);
+
+		}
+
+
+		public function obterDadosGastos($id){
+			$c= new conectar();
+			$conexao=$c->conexao();
+
+			$sql="SELECT 	id_gasto,
+										descricao,
+										valor,
+										dataGasto
+										FROM gastos_extras
+										WHERE id_gasto = '$id'";
+			$result=mysqli_query($conexao,$sql);
+
+			$mostrar=mysqli_fetch_row($result);
+
+			$dados=array(
+					"id_gasto" => $mostrar[0],
+					"descricao" => $mostrar[1],
+					"valor" => number_format($mostrar[2], 2, ',', '.'),
+					"dataGasto" => $mostrar[3]
+					);
+
+			return $dados;
+		}
+
+
+		public function atualizarGasto($dados){
+			$c= new conectar();
+			$conexao=$c->conexao();
+
+
+			$sql="UPDATE 	gastos_extras
+						SET 		descricao = '$dados[1]',
+										valor='$dados[2]',
+										dataGasto='$dados[3]'
+						where 	id_gasto='$dados[0]'";
+
+			return mysqli_query($conexao,$sql);
+		}
+
 	}
 ?>

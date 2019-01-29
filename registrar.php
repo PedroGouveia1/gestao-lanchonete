@@ -76,7 +76,6 @@
 				data:dados,
 				url:"procedimentos/login/registrarUsuario.php",
 				success:function(r){
-					//alert(r);
 
 					if(r==1){
 						alert("Inserido com Sucesso!!");

@@ -36,6 +36,8 @@ require_once "dependencias.php";
 								<li><a href="categorias.php">Gerir categorias</a></li>
 								<li><a href="fornecedores.php">Gerir fornecedores</a></li>
 								<li><a href="produtos.php">Gerir produtos</a></li>
+								<li><a href="entrada_produtos.php">Entrada de produtos</a></li>
+								<li><a href="saida_produtos.php">Saída de produtos</a></li>
 							</ul>
 						</li>
 
@@ -50,8 +52,8 @@ require_once "dependencias.php";
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-usd"></span> Financeiro <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="entrada_produtos.php">Entrada de produtos</a></li>
 								<li><a href="relatorio_caixa.php">Caixa diário</a></li>
+								<li><a href="gastos_extras.php">Gastos extras</a></li>
 							</ul>
 						</li>
 						
