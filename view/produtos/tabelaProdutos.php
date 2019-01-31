@@ -11,7 +11,8 @@
 		  from produtos as pro 
 		  inner join categorias as cat
 		  on pro.id_categoria=cat.id_categoria
-		  WHERE pro.ativo = 1";
+		  WHERE pro.ativo = 1
+		  ORDER BY pro.nome";
 	$result=mysqli_query($conexao,$sql);
 
 	

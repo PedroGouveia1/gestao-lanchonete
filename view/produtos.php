@@ -44,7 +44,7 @@ if(isset($_SESSION['usuario'])){
 						<input type="text" class="form-control input-sm dinheiro" id="preco" name="preco">
 						
 						<p></p>
-						<span id="btnAddProduto" class="btn btn-primary">Adicionar</span>
+						<button id="btnAddProduto" class="btn btn-primary">Adicionar</button>
 					</form>
 				</div>
 				<div class="col-sm-8">
