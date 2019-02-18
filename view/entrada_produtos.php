@@ -32,7 +32,7 @@ if(isset($_SESSION['usuario'])){
 						<label for="produtoSelect">Produto</label>
 						<select class="form-control input-sm" id="produtoSelect" name="produtoSelect">
 							<?php
-								$sql="SELECT id_produto, nome FROM produtos ORDER BY nome";
+								$sql="SELECT id_produto, nome FROM produtos WHERE ativo = 1 ORDER BY nome";
 								$result=mysqli_query($conexao,$sql);
 								while($mostrar=mysqli_fetch_row($result)):
 							?>
@@ -59,7 +59,7 @@ if(isset($_SESSION['usuario'])){
 						<input type="date" class="form-control input-sm" id="dataCompra" name="dataCompra" value="<?php echo date('Y-m-d'); ?>">
 						
 						<p></p>
-						<span id="btnAddCompra" class="btn btn-primary">Adicionar</span>
+						<button id="btnAddCompra" class="btn btn-primary">Adicionar</button>
 					</form>
 				</div>
 
@@ -213,8 +213,8 @@ if(isset($_SESSION['usuario'])){
 					success:function(r){
 							
 						if(r == 1){
-							$('#frmCompra')[0].reset();
-							$('#tabelaFinanceirosLoad').load("financeiros/tabelaFinanceiros.php");
+							//$('#frmCompra')[0].reset();
+							//$('#tabelaFinanceirosLoad').load("financeiros/tabelaFinanceiros.php");
 							alertify.success("Adicionado com sucesso!");
 						}else{
 							alertify.error("Falha ao adicionar");

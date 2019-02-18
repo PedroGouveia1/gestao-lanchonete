@@ -41,7 +41,7 @@
 							<label>Senha</label>
 							<input type="password" name="senha" id="senha" class="form-control input-sm">
 							<p></p>
-							<span class="btn btn-primary btn-sm" id="entrarSistema">Entrar</span>
+							<button class="btn btn-primary btn-sm" id="entrarSistema">Entrar</button>
 							<?php if(!$validar): ?>
 							<a href="registrar.php" class="btn btn-danger btn-sm">Registrar</a>
 

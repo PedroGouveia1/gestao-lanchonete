@@ -3,7 +3,7 @@
 	require_once "../../classes/conexao.php";
 	$c= new conectar();
 	$conexao=$c->conexao();
-	$sql="SELECT id_gasto, descricao, valor, dataGasto FROM gastos_extras ORDER BY id_usuario desc";
+	$sql="SELECT id_gasto, descricao, valor, dataGasto FROM gastos_extras ORDER BY id_gasto desc";
 	$result=mysqli_query($conexao,$sql);
 
 	

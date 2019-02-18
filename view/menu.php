@@ -21,13 +21,13 @@ require_once "dependencias.php";
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="inicio.php"><img class="img-responsive logo img-thumbnail" src="../img/phpoo.png" alt="" width="200px" height="150px"></a>
+					<!--<a class="navbar-brand" href="inicio.php"><img class="img-responsive logo img-thumbnail" src="../img/phpoo.png" alt="" width="200px" height="150px"></a>-->
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 
 					<ul class="nav navbar-nav navbar-right">
 
-						<li class="active"><a href="inicio.php"><span class="glyphicon glyphicon-home"></span> Inicio</a>
+						<li><a href="inicio.php"><span class="glyphicon glyphicon-home"></span> Inicio</a>
 						</li>
 
 						<li class="dropdown">
@@ -52,7 +52,8 @@ require_once "dependencias.php";
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-usd"></span> Financeiro <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="relatorio_caixa.php">Caixa diário</a></li>
+								<li><a href="relatorio_caixa.php">Relatório caixa diário</a></li>
+								<li><a href="relatorio_geral.php">Relatório geral</a></li>
 								<li><a href="gastos_extras.php">Gastos extras</a></li>
 							</ul>
 						</li>

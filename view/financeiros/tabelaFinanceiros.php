@@ -28,7 +28,7 @@
 	<tr>
 		<thead><tr>
 		<td>Produto</td>
-		<td>Fornecedor</td>
+		<td width="200">Fornecedor</td>
 		<td>Qtd</td>
 		<td>Preço und.</td>
 		<td>Preço total</td>

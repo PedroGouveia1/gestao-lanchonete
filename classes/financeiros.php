@@ -74,7 +74,7 @@
 			$result = mysqli_query($conexao,$atualizaEstoque);
 
 			$sql="UPDATE 	compras
-						SET 		id_produto = '$dados[4]',
+						SET 		
 										id_fornecedor='$dados[1]',
 										quantidade='$dados[2]',
 										preco='$dados[3]'
